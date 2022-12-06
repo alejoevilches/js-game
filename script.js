@@ -7,11 +7,24 @@ function range(min, max){
 let pc=range(1,3);
 console.log(pc);
 
-//1 es piedra, 2 es papel, 3 es tijera
+//1 es piedra, 2 es papel, 3 es tijera. Mostrar la elección de cada una de las partes.
 
 jugador=prompt("1 es piedra, 2 es papel, 3 es tijera")
 
-if (jugador==1){
+function election(val){
+    if (val==1){
+        return "Piedra";
+    } else if (val==2){
+        return "Papel";
+    } else if (val==3){
+        return "Tijera";
+    }
+}
+
+alert("El jugador eligió " + election(jugador))
+alert("La PC eligió " + election(pc))
+
+/*if (jugador==1){
     alert("Elegiste piedra")
 } else if (jugador==2){
     alert("Elegiste papel")
@@ -25,7 +38,7 @@ if (pc==1){
     alert("La maquina eligió papel")
 } else if (pc==3){
     alert("La maquina eligió tijera")
-}
+} */
 
 //COMBATES
 
