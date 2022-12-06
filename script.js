@@ -1,5 +1,11 @@
-let jugador=0;
-let pc=3;
+let jugador
+
+//Hacer que la PC elija un numero random cada vuelta
+function range(min, max){
+    return Math.floor(Math.random()*max+min-1)+min;}
+
+let pc=range(1,3);
+console.log(pc);
 
 //1 es piedra, 2 es papel, 3 es tijera
 
@@ -25,11 +31,7 @@ if (pc==1){
 
 if (jugador == pc){
     alert("EMPATE");
-} else if (jugador==1 && pc==3){
-    alert("GANASTE");
-} else if (jugador==2 && pc==1){
-    alert("GANASTE");
-} else if (jugador==3 && pc==2){
+} else if ((jugador==1 && pc==3) || (jugador==2 && pc==1) || (jugador==3 && pc==2)){
     alert("GANASTE");
 } else{
     alert("PERDISTE");
