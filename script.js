@@ -11,12 +11,15 @@ let jordi=document.getElementById("jordi");
 function handleConfifmPlayerSelection(){
     if (bounou.checked==true){
         alert("Seleccionaste a Yassine Bounou")
+        playerSelection="bounou"
     }
     else if (mbappe.checked==true){
         alert("Seleccionaste a Kylian Mbappe")
+        playerSelection="mbappe"
     }
     else if (neymar.checked==true){
         alert("Seleccionaste a Neymar")
+        playerSelection="neymar"
     }
     else if (enzo.checked==true){
         alert("Seleccionaste a Enzo Fernandez")
