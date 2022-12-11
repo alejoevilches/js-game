@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Platzi de programacion</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>POKEFUTBOL</title>
 </head>
 <body>
-    
+    <h1>POKEFUTBOL! ⚽️</h1>
+    <section id="player_selection">
+        <h2>Elige tu jugador:</h2>
+        <label for="bounou"><input type="radio" name="player" id="bounou">Yassine Bounou</label>
+        <label for="mbappe"><input type="radio" name="player" id="mbappe">Kylian Mbappe</label>
+        <label for="neymar"><input type="radio" name="player" id="neymar">Neymar</label>
+        <label for="maguire"><input type="radio" name="player" id="maguire">Harry Maguire</label>
+        <label for="enzo"><input type="radio" name="player" id="enzo">Enzo Fernandez</label>
+        <label for="jordi"><input type="radio" name="player" id="jordi">Jordi Alba</label>
+    </section>
+    <section id="attack_selection">
+        <p>Tu jugador tiene <span>3</span> vidas</p>
+        <p>El jugador de tu contrincante tiene <span>3</span> vidas</p>
+        <h2>Elige tu ataque:</h2>
+        <div class="buttons">
+            <button id="shoot_button">Disparo ⚽️</button>
+            <button id="speed_button">Velocidad ⚽️</button>
+            <button id="defense_button">Defensa ⚽️</button>
+        </div>
+    </section>
+    <section id="messages">
+        <p>Tu jugador atacó con <span>DISPARO</span>, el oponente atacó con Regate - <span>GANASTE 🎉</span></p>
+    </section>
+    <section id="reset">
+        <button>Reiniciar</button>
+    </section>
 </body>
+<script src="script.js"></script>
 </html>
