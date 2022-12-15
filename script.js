@@ -5,6 +5,8 @@ let speed=document.getElementById("speed_button");
 let defense=document.getElementById("defense_button");
 let playersList=["Yassine Bounou", "Kylian Mbappe", "Neymar", "Enzo Fernandez", "Harry Maguire", "Luis Suarez"]
 let attackList=["Disparo", "Defensa", "Velocidad"];
+let playerCurrentLives=3
+let pcCurrentLives=3
 let playerAttackSelection
 let pcAttackSelection
 let result
@@ -67,7 +69,7 @@ function pcPlayerSelection(){
     pcPlayer.innerText=playersList[selection];
 }
 
-//Función para seleccionar el ataque del jugador
+//Función para seleccionar el ataque del jugador y ejecutar la batalla
 function attackSelect(){
     defense.addEventListener("click", defenseSelection);
     speed.addEventListener("click", speedSelection);
@@ -112,8 +114,12 @@ function battle(){
         result="EMPATE" 
     }  else if ((playerAttackSelection=="Defensa" && pcAttackSelection=="Velocidad") || (playerAttackSelection=="Disparo" && pcAttackSelection=="Defensa") || (playerAttackSelection=="Velocidad" && pcAttackSelection=="Disparo")) {
         result="GANASTE";
+        pcCurrentLives--
+        pcLives.innerHTML=pcCurrentLives;
     } else {
         result="PERDISTE";
+        playerCurrentLives--
+        playerLives.innerHTML=playerCurrentLives;
     }
     resultAlert.innerText=result;
 }
