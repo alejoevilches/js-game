@@ -3,6 +3,7 @@ let selectPlayerButton=document.getElementById("player_selectbutton");
 let shoot=document.getElementById("shoot_button");
 let speed=document.getElementById("speed_button");
 let defense=document.getElementById("defense_button");
+let restartButton=document.getElementById("restart_button")
 let playersList=["Yassine Bounou", "Kylian Mbappe", "Neymar", "Enzo Fernandez", "Harry Maguire", "Luis Suarez"]
 let attackList=["Disparo", "Defensa", "Velocidad"];
 let playerCurrentLives=3
@@ -69,6 +70,7 @@ function pcPlayerSelection(){
     pcPlayer.innerText=playersList[selection];
 }
 
+
 //Función para seleccionar el ataque del jugador y ejecutar la batalla
 function attackSelect(){
     defense.addEventListener("click", defenseSelection);
@@ -107,7 +109,12 @@ function pcAttackSelect(){
     pcAttackSelection=attackList[selection];
 }
 
-/* Función de batallas entre personajes. I
+//Función para reiniciar el juego
+function restartGame(){
+    location.reload();
+}
+
+/* Función de batallas entre personajes. Tambien alerta si un jugador ganó o perdió
 MPORTANTE: En este juego Defensa le gana a Velocidad, Disparo le gana a Defensa y Velocidad le gana a Disparo */
 function battle(){
     if (playerAttackSelection === pcAttackSelection){
@@ -122,7 +129,20 @@ function battle(){
         playerLives.innerHTML=playerCurrentLives;
     }
     resultAlert.innerText=result;
+
+    if (pcCurrentLives==0){
+        alert("GANASTE EL JUEGO!")
+        defense.disabled=true; 
+        shoot.disabled=true;
+        speed.disabled=true;
+        } else if (playerCurrentLives==0) { 
+        alert("PERDISTE")
+        defense.disabled=true; 
+        shoot.disabled=true;
+        speed.disabled=true;
+    }
 }
+
 
 //Event listeners para ejecutar confirmaciónes del jugador
 selectPlayerButton.addEventListener("click", handleConfifmPlayerSelection);
