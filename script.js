@@ -75,7 +75,6 @@ function attackSelect(){
     let playerAttack=document.getElementById("player_attack");
 
     function defenseSelection(){
-        alert("Elegiste DEFENSA");
         playerAttackSelection="Defensa"
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
@@ -84,7 +83,6 @@ function attackSelect(){
     }
 
     function speedSelection(){
-        alert("Elegiste VELOCIDAD");
         playerAttackSelection="Velocidad"
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
@@ -93,7 +91,6 @@ function attackSelect(){
     }
 
     function shootSelection(){
-        alert("Elegiste DISPARO");
         playerAttackSelection="Disparo"
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
@@ -113,7 +110,7 @@ MPORTANTE: En este juego Defensa le gana a Velocidad, Disparo le gana a Defensa 
 function battle(){
     if (playerAttackSelection === pcAttackSelection){
         result="EMPATE" 
-    }  else if ((playerAttackSelection=="Defensa" && pcAttackSelection=="Velocidad") || (playerAttackSelection=="Disparo" && pcAttackSelection=="Defensa") || (playerAttackSelection=="Velocidad" && pcAttackSelect=="Disparo")) {
+    }  else if ((playerAttackSelection=="Defensa" && pcAttackSelection=="Velocidad") || (playerAttackSelection=="Disparo" && pcAttackSelection=="Defensa") || (playerAttackSelection=="Velocidad" && pcAttackSelection=="Disparo")) {
         result="GANASTE";
     } else {
         result="PERDISTE";
