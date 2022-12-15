@@ -137,7 +137,7 @@ function battle(){
 
     if (pcCurrentLives==0){
         alert("GANASTE EL JUEGO!")
-        section.style.display="block";
+        reset.style.display="block";
         defense.disabled=true; 
         shoot.disabled=true;
         speed.disabled=true;
