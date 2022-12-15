@@ -104,6 +104,9 @@ function pcAttackSelect(){
     console.log(pcAttackSelection);
 }
 
+/* Función de batallas entre personajes. I
+MPORTANTE: En este juego Defensa le gana a Velocidad, Disparo le gana a Defensa y Velocidad le gana a Disparo */
+
+
 //Event listeners para ejecutar confirmaciónes del jugador
 selectPlayerButton.addEventListener("click", handleConfifmPlayerSelection);
-
