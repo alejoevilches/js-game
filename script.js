@@ -6,6 +6,7 @@ let defense=document.getElementById("defense_button");
 let restartButton=document.getElementById("restart_button")
 let playersList=["Yassine Bounou", "Kylian Mbappe", "Neymar", "Enzo Fernandez", "Harry Maguire", "Luis Suarez"]
 let attackList=["Disparo", "Defensa", "Velocidad"];
+let attackSection=document.getElementById("attack_section")
 let playerCurrentLives=3
 let pcCurrentLives=3
 let playerAttackSelection
@@ -19,6 +20,10 @@ let p1Player=document.getElementById("p1_player")
 let pcPlayer=document.getElementById("pc_player")
 let pcAttack=document.getElementById("pc_attack");
 let resultAlert=document.getElementById("result");
+
+function changeDisplay(section){
+    section.style.display="block";
+}
 
 //Funcion para crear numeros aleatorios
 function random(min, max){
@@ -132,17 +137,18 @@ function battle(){
 
     if (pcCurrentLives==0){
         alert("GANASTE EL JUEGO!")
+        section.style.display="block";
         defense.disabled=true; 
         shoot.disabled=true;
         speed.disabled=true;
         } else if (playerCurrentLives==0) { 
         alert("PERDISTE")
+        reset.style.display="block";
         defense.disabled=true; 
         shoot.disabled=true;
         speed.disabled=true;
     }
 }
-
 
 //Event listeners para ejecutar confirmaciónes del jugador
 selectPlayerButton.addEventListener("click", handleConfifmPlayerSelection);

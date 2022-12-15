@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
     <title>POKEFUTBOL</title>
 </head>
@@ -17,16 +18,16 @@
         <label for="maguire"><input type="radio" name="player" id="maguire">Harry Maguire</label>
         <label for="enzo"><input type="radio" name="player" id="enzo">Enzo Fernandez</label>
         <label for="suarez"><input type="radio" name="player" id="suarez">Luis Suarez</label>
-        <button id="player_selectbutton">Seleccionar</button>
+        <button id="player_selectbutton" onclick="changeDisplay(attack_selection)">Seleccionar</button>
     </section>
     <section id="attack_selection">
         <p>Tu jugador tiene <span id="player_lives">3</span> vidas</p>
         <p>El jugador de tu contrincante tiene <span id="pc_lives">3</span> vidas</p>
         <h2>Elige tu ataque:</h2>
         <div class="buttons">
-            <button id="shoot_button">Disparo ⚽️</button>
-            <button id="speed_button">Velocidad ⚽️</button>
-            <button id="defense_button">Defensa ⚽️</button>
+            <button id="shoot_button" onclick="changeDisplay(messages)">Disparo ⚽️</button>
+            <button id="speed_button" onclick="changeDisplay(messages)">Velocidad ⚽️</button>
+            <button id="defense_button" onclick="changeDisplay(messages)">Defensa ⚽️</button>
         </div>
     </section>
     <section id="messages">
