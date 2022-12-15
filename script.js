@@ -7,6 +7,7 @@ let playersList=["Yassine Bounou", "Kylian Mbappe", "Neymar", "Enzo Fernandez", 
 let attackList=["Disparo", "Defensa", "Velocidad"];
 let playerAttackSelection
 let pcAttackSelection
+let result
 
 //Creacion de variables de los elementos dinámicos del DOM
 let playerLives=document.getElementById("player_lives");
@@ -14,6 +15,7 @@ let pcLives=document.getElementById("pc_lives");
 let p1Player=document.getElementById("p1_player")
 let pcPlayer=document.getElementById("pc_player")
 let pcAttack=document.getElementById("pc_attack");
+let resultAlert=document.getElementById("result");
 
 //Funcion para crear numeros aleatorios
 function random(min, max){
@@ -78,6 +80,7 @@ function attackSelect(){
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
         pcAttack.innerHTML=pcAttackSelection
+        battle();
     }
 
     function speedSelection(){
@@ -86,6 +89,7 @@ function attackSelect(){
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
         pcAttack.innerHTML=pcAttackSelection
+        battle();
     }
 
     function shootSelection(){
@@ -94,6 +98,7 @@ function attackSelect(){
         playerAttack.innerHTML=playerAttackSelection;
         pcAttackSelect();
         pcAttack.innerHTML=pcAttackSelection
+        battle();
     }
 }
 
@@ -101,12 +106,20 @@ function attackSelect(){
 function pcAttackSelect(){
     let selection=Math.floor(Math.random()*(2-0+1))+0;
     pcAttackSelection=attackList[selection];
-    console.log(pcAttackSelection);
 }
 
 /* Función de batallas entre personajes. I
 MPORTANTE: En este juego Defensa le gana a Velocidad, Disparo le gana a Defensa y Velocidad le gana a Disparo */
-
+function battle(){
+    if (playerAttackSelection === pcAttackSelection){
+        result="EMPATE" 
+    }  else if ((playerAttackSelection=="Defensa" && pcAttackSelection=="Velocidad") || (playerAttackSelection=="Disparo" && pcAttackSelection=="Defensa") || (playerAttackSelection=="Velocidad" && pcAttackSelect=="Disparo")) {
+        result="GANASTE";
+    } else {
+        result="PERDISTE";
+    }
+    resultAlert.innerText=result;
+}
 
 //Event listeners para ejecutar confirmaciónes del jugador
 selectPlayerButton.addEventListener("click", handleConfifmPlayerSelection);
