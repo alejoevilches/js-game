@@ -1,7 +1,11 @@
+//Variables del juego
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
+let mokepones=[];
+
+//Constantes que incluyen botones de acciones
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
 const botonMascotaJugador = document.getElementById('boton-mascota')
@@ -10,16 +14,36 @@ const botonAgua = document.getElementById('boton-agua')
 const botonTierra = document.getElementById('boton-tierra')
 const botonReiniciar = document.getElementById('boton-reiniciar')
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+
+//Constantes de elección de personaje
 const inputHipodoge = document.getElementById('hipodoge')
 const inputCapipepo = document.getElementById('capipepo')
 const inputRatigueya = document.getElementById('ratigueya')
+
+//Constantes dinamicas del DOM
 const spanMascotaJugador = document.getElementById('mascota-jugador')
+const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 const spanVidasJugador = document.getElementById('vidas-jugador')
 const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
+//Constructor de Mokepones
+class Mokepon{
+    constructor(nombre,imagen,vidas){
+        this.nombre=nombre;
+        this.imagen=imagen;
+        this.vidas=vidas;
+    }     
+}
+
+
+//Creación de Mokepones 
+let hipodoge=new Mokepon("Hipodoge", "/img/hipodoge.png", 3);
+let capipego=new Mokepon("Capipego", "/img/capipego.png", 3);
+let ratigueya=new Mokepon("Ratigueya", "/img/ratigueya.png", 3);
+mokepones.push(hipodoge,capipego,ratigueya);
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
@@ -52,7 +76,6 @@ function seleccionarMascotaJugador() {
 
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(1,3)
-    let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
     if (mascotaAleatoria == 1) {
         spanMascotaEnemigo.innerHTML = 'Hipodoge'
     } else if (mascotaAleatoria == 2) {
