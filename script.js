@@ -9,6 +9,7 @@ let mokepones=[];
 //Constantes que incluyen botones de acciones
 const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
 const sectionReiniciar = document.getElementById('reiniciar')
+const contenedorTarjetas=document.getElementById("contenedor_tarjetas")
 const botonMascotaJugador = document.getElementById('boton-mascota')
 const botonFuego = document.getElementById('boton-fuego')
 const botonAgua = document.getElementById('boton-agua')
@@ -16,10 +17,10 @@ const botonTierra = document.getElementById('boton-tierra')
 const botonReiniciar = document.getElementById('boton-reiniciar')
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
 
-//Constantes de elección de personaje
-const inputHipodoge = document.getElementById('hipodoge')
-const inputCapipepo = document.getElementById('capipepo')
-const inputRatigueya = document.getElementById('ratigueya')
+//Inicializacion de variables de botones
+let inputHipodoge
+let inputCapipepo
+let inputRatigueya
 
 //Constantes dinamicas del DOM
 const spanMascotaJugador = document.getElementById('mascota-jugador')
@@ -51,7 +52,7 @@ hipodoge.ataques.push=[
     {nombre:"Terremoto", id:"boton-tierra"},
 ]
 
-let capipego=new Mokepon("Capipego", "/img/capipego.png", 3);
+let capipego=new Mokepon("Capipepo", "/img/capipepo.png", 3);
 capipego.ataques.push=[
     {nombre:"Terremoto", id:"boton-tierra"},
     {nombre:"Bola de tierra", id:"boton-tierra"},
@@ -74,7 +75,17 @@ mokepones.push(hipodoge,capipego,ratigueya);
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
     mokepones.forEach((mokepon) =>{
-        console.log(mokepon);
+        opcionDeMokepones=`
+        <div class="tarjetas">
+        <input type="radio" name="mascota" id="${mokepon.nombre}"/>
+        <label class="tarjeta-de-mokepon" for="${mokepon.nombre}">
+            <p>${mokepon.nombre}</p>
+            <img src="${mokepon.imagen}" alt="${mokepon.nombre}">
+        </label>`;
+        contenedorTarjetas.innerHTML += opcionDeMokepones;
+        inputHipodoge = document.getElementById('Hipodoge')
+        inputCapipepo = document.getElementById('Capipepo')
+        inputRatigueya = document.getElementById('Ratigueaya')
     })
     sectionReiniciar.style.display = 'none'
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
