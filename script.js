@@ -30,6 +30,7 @@ let ataquesMokepon
 let botonFuego
 let botonAgua
 let botonTierra
+let botones=[];
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -42,35 +43,35 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', 'img/hipodoge.png', 5)
+let hipodoge = new Mokepon('Hipodoge', '/img/hipodoge.png', 5)
 
-let capipepo = new Mokepon('Capipepo', 'img/capipepo.png', 5)
+let capipepo = new Mokepon('Capipepo', '/img/capipepo.png', 5)
 
-let ratigueya = new Mokepon('Ratigueya', 'img/ratigueya.png', 5)
+let ratigueya = new Mokepon('Ratigueya', '/img/ratigueya.png', 5)
 
 hipodoge.ataques.push(
-    { nombre: 'Tsunami', id: 'boton-agua' },
-    { nombre: 'Lluvia', id: 'boton-agua' },
-    { nombre: 'Tormenta electrica', id: 'boton-agua' },
-    { nombre: 'Incendio', id: 'boton-fuego' },
-    { nombre: 'Terremoto', id: 'boton-tierra' },
+    { nombre: '💧', id: 'boton-agua' },
+    { nombre: '💧', id: 'boton-agua' },
+    { nombre: '💧', id: 'boton-agua' },
+    { nombre: '🔥', id: 'boton-fuego' },
+    { nombre: '🌱', id: 'boton-tierra' },
 )
 
 capipepo.ataques.push(
-    { nombre: 'Terremoto', id: 'boton-tierra' },
-    { nombre: 'Ataque terrestre', id: 'boton-tierra' },
-    { nombre: 'Ataque montañoso', id: 'boton-tierra' },
-    { nombre: 'Lluvia', id: 'boton-agua' },
-    { nombre: 'Incendio', id: 'boton-fuego' },
+    { nombre: '🌱', id: 'boton-tierra' },
+    { nombre: '🌱', id: 'boton-tierra' },
+    { nombre: '🌱', id: 'boton-tierra' },
+    { nombre: '💧', id: 'boton-agua' },
+    { nombre: '🔥', id: 'boton-fuego' },
     
 )
 
 ratigueya.ataques.push(
-    { nombre: 'Incendio', id: 'boton-fuego' },
-    { nombre: 'Ataque volcan', id: 'boton-fuego' },
-    { nombre: 'Llamarada', id: 'boton-fuego' },
-    { nombre: 'Lluvia', id: 'boton-agua' },
-    { nombre: 'Terremoto', id: 'boton-tierra' },
+    { nombre: '🔥', id: 'boton-fuego' },
+    { nombre: '🔥', id: 'boton-fuego' },
+    { nombre: '🔥', id: 'boton-fuego' },
+    { nombre: '💧', id: 'boton-agua' },
+    { nombre: '🌱', id: 'boton-tierra' },
 )
 
 mokepones.push(hipodoge,capipepo,ratigueya)
@@ -144,23 +145,39 @@ function extraerAtaques(mascotaJugador) {
 function mostrarAtaques(ataques) {
     ataques.forEach((ataque) => {
         ataquesMokepon = `
-        <button id=${ataque.id} class="boton-de-ataque">${ataque.nombre}</button>
+        <button id=${ataque.id} class="boton-de-ataque BAtaque">${ataque.nombre}</button>
         `
         contenedorAtaques.innerHTML += ataquesMokepon
     })
 
-     botonFuego = document.getElementById('boton-fuego')
-     botonAgua = document.getElementById('boton-agua')
-     botonTierra = document.getElementById('boton-tierra')
+     botonFuego = document.getElementById('boton-fuego');
+     botonAgua = document.getElementById('boton-agua');
+     botonTierra = document.getElementById('boton-tierra');
+     botones = document.querySelectorAll(".BAtaque");
+    
+
      botonFuego.addEventListener('click', ataqueFuego)
-     botonAgua.addEventListener('click', ataqueAgua)
-     botonTierra.addEventListener('click', ataqueTierra)
+    
+    botonAgua.addEventListener('click', ataqueAgua)
+    
+    botonTierra.addEventListener('click', ataqueTierra)
+}
+
+function secuenciaAtaques(){
+    botones.forEach((boton) => {
+        boton.addEventListener("click", (e)=>{
+            if (e.target.textContent == '🔥'){
+
+            }
+        })
+    })
 }
 
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(0, mokepones.length -1)
 
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+    secuenciaAtaques();
 }
 
 function ataqueFuego() {
@@ -225,11 +242,15 @@ function revisarVidas() {
 }
 
 function crearMensaje(resultado) {
+    
+    
     let nuevoAtaqueDelJugador = document.createElement('p')
     let nuevoAtaqueDelEnemigo = document.createElement('p')
+
     sectionMensajes.innerHTML = resultado
     nuevoAtaqueDelJugador.innerHTML = ataqueJugador
     nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
     ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
     ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
