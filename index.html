@@ -7,7 +7,7 @@
     </head>
     <body>
         <section id="seleccionar-mascota">
-            <h1 class="titulo">Mokepon</h1> 
+            <h1 class="titulo">Mokepono</h1> 
 
             <h2 class="subtitulo">Elige tu mascota:</h2>
 
@@ -21,10 +21,10 @@
         <section id="ver-mapa">
             <h1 class="titulo">Recorre el mapa con tu mokepon</h1> 
             <canvas id="mapa"></canvas>
-            <button onClick="moverArriba()">Arriba</button>
-            <button onClick="moverIzquierda()">Izquierda</button>
-            <button onClick="moverAbajo()">Abajo</button>
-            <button onClick="moverDerecha()">Derecha</button>
+            <button onmouseup="detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>
+            <button onmouseup="detenerMovimiento()" onmousedown="moverIzquierda()">Izquierda</button>
+            <button onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button>
+            <button onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button>
         </section>
 
         <section id="seleccionar-ataque">
@@ -57,6 +57,6 @@
                 </div>
             </div>
         </section>
-        <script src="script.js"></script>
+        <script src="./js/mokepon.js"></script>
     </body>
 </html>
